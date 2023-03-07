@@ -27,6 +27,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-orgmode/orgmode'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'abeleinin/papyrus'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'soimort/translate-shell'
+Plug 'VincentCordobes/vim-translate'
 
 call plug#end()
 
@@ -75,6 +79,15 @@ let g:AutoPairs = {'(':')', '[':']', '{':'}' ,'"':'"', '```':'```', '"""':'"""',
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'default-community'
 colorscheme material 
+
+nnoremap <silent> <leader>tt :Translate<CR>
+vnoremap <silent> <leader>tt :TranslateVisual<CR>
+vnoremap <silent> <leader>tr :TranslateReplace<CR>
+
+" let g:translate#default_languages = {
+      "\ 'ru': 'en',
+      "\ 'en': 'ru'
+      "\ }
 
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
