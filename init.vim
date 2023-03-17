@@ -43,13 +43,9 @@ if has('termguicolors')
 	set termguicolors
 endif
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_global_extensions = ['coc-python', 'coc-tsserver', 'coc-json']
-let g:coc_node_path = '/usr/local/bin/node'
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
 
 let g:papyrus_template = 'lecture'
 let g:papyrus_viewer = 'zathura'
@@ -58,6 +54,12 @@ map <leader>vc :PapyrusCompile<CR>
 map <leader>va :PapyrusAutoCompile<CR>
 map <leader>vo :PapyrusView<CR>
 map <leader>vs :PapyrusStart<CR>
+
+map <leader>cp :w !pbcopy<CR>
+
+nnoremap <silent> <leader>tt :Translate<CR>
+vnoremap <silent> <leader>tt :TranslateVisual<CR>
+vnoremap <silent> <leader>tr :TranslateReplace<CR>
 
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
@@ -79,17 +81,4 @@ let g:AutoPairs = {'(':')', '[':']', '{':'}' ,'"':'"', '```':'```', '"""':'"""',
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'default-community'
 colorscheme material 
-
-nnoremap <silent> <leader>tt :Translate<CR>
-vnoremap <silent> <leader>tt :TranslateVisual<CR>
-vnoremap <silent> <leader>tr :TranslateReplace<CR>
-
-" let g:translate#default_languages = {
-      "\ 'ru': 'en',
-      "\ 'en': 'ru'
-      "\ }
-
-augroup pandoc_syntax
-    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-augroup END
 
