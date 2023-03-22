@@ -44,7 +44,7 @@ if has('termguicolors')
 endif
 
 augroup pandoc_syntax
-    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+  au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
 let g:papyrus_template = 'lecture'
