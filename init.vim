@@ -31,12 +31,13 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'soimort/translate-shell'
 Plug 'VincentCordobes/vim-translate'
+Plug 'kaarmu/typst.vim'
 
 call plug#end()
 
 if has("autocmd")
 	autocmd filetypedetect BufReadPost *.rkt,*.rktl,*.rktd set filetype=scheme
-  autocmd filetypedetect BufReadPost *.md,*.tex set wrap linebreak | set spell spelllang=en_us 
+  autocmd filetypedetect BufReadPost *.md,*.tex,*.typ set wrap linebreak | set spell spelllang=en_us 
 endif
 
 if has('termguicolors')
