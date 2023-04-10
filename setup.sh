@@ -11,7 +11,8 @@ nvim '+PluginInstall --sync' +q
 
 # Tmux.
 brew install tmux
-ln -s "${PWD}/tmux.conf" ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ln -s "${PWD}/.tmux.conf" ~/.tmux.conf
 
 # Git.
 ln -s "${PWD}/gitconfig" ~/.gitconfig
