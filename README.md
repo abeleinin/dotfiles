@@ -1,11 +1,19 @@
 # dotfiles
 
-## Install
+## Mac OS Install
 
 ```bash
 git clone git@github.com:abeleinin/dotfiles
-cd ~/dotfiles
-./setup.sh
+cd dotfiles/
+./mac_setup.sh
+```
+
+## Ubuntu Install
+
+```bash
+git clone git@github.com:abeleinin/dotfiles
+cd dotfiles/
+./ubuntu_setup.sh
 ```
 
 ## Tools
